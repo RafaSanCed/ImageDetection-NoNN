@@ -1,8 +1,28 @@
 # Detección de Objetos en Imágenes Aéreas Utilizando Métodos Clásicos
 
-Este repositorio contiene el código y los recursos necesarios para detectar aviones en imágenes aéreas utilizando 
-métodos clásicos de procesamiento de imágenes. El objetivo de este proyecto es explorar alternativas a las redes 
-neuronales para la detección de objetos, demostrando que técnicas más simples pueden ofrecer resultados efectivos.
+Este proyecto tiene como objetivo explorar alternativas a las redes neuronales para la detección de objetos en imágenes aéreas, específicamente aviones. Utilizando técnicas clásicas de procesamiento de imágenes, como la detección de bordes y el análisis de cambios de color, combinadas con optimización de parámetros mediante Optuna, se busca demostrar que es posible lograr resultados efectivos sin recurrir a modelos de deep learning.
+## Descripción del Proyecto
+
+La detección de objetos en imágenes aéreas presenta desafíos únicos debido a las variaciones en el ángulo de captura, condiciones de iluminación y la naturaleza diversa de los fondos. Este proyecto adopta un enfoque basado en la combinación de filtros clásicos y métodos de procesamiento de imágenes, evitando la complejidad de las redes neuronales profundas.
+
+### Metodología:
+
+1. **Preprocesamiento de la imagen:**
+   - Conversión de las imágenes a escala de grises para simplificar el procesamiento.
+   - Aplicación de un filtro de desenfoque gaussiano para reducir el ruido y mejorar la detección de bordes.
+
+2. **Detección de bordes:**
+   - Uso del algoritmo de Canny para resaltar los contornos de los objetos en la imagen, un método robusto y probado en diversas aplicaciones.
+
+3. **Detección de cambios de color:**
+   - Segmentación de la imagen en sus canales de color (rojo, verde, azul) para detectar cambios bruscos de color a lo largo de los bordes identificados. Esta técnica permite resaltar áreas donde es más probable que se encuentren los aviones, aprovechando las diferencias cromáticas típicas.
+
+4. **Combinación lineal de filtros:**
+   - Integración de las máscaras obtenidas de la detección de bordes y los cambios de color mediante una combinación lineal ponderada, resaltando las regiones de interés.
+
+5. **Optimización con Optuna:**
+   - Ajuste de los parámetros del modelo utilizando Optuna, un framework para la optimización de hiperparámetros, para mejorar la precisión del modelo.
+
 
 ## Estructura del Repositorio
 
